@@ -29,7 +29,11 @@
 ```mvn test```
 
 ### Start
-```java -jar reece-address-book-1.0-SNAPSHOT.jar server```
+ - Open project in NetBeans
+ - Right click on the project and click on properties
+ - Set Main class : au.com.reece.addressbook.Application
+ - Set Argument : server
+ - Right click on the project and run the application
 
 
 ## REST ENDPOINTS
