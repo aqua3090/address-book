@@ -21,7 +21,7 @@ public class ContactInfo {
     private String lastName;
 
     @NotNull(message = "Please provide phone numbers")
-    @Pattern(regexp = "^[d]*$", message = "Numers only")
+    @Pattern(regexp = "\\d+", message = "Numers only")
     @Size(min = 10, max = 12)
     String phoneNumber;
 

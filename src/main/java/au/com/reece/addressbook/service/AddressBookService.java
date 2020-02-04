@@ -49,11 +49,15 @@ public final class AddressBookService {
      * @throws AddressBookApplicationException 
      */
     public ContactInfo addContact(String addressBookId, ContactInfo contact) throws AddressBookApplicationException {
+        if (!addressBooks.containsKey(addressBookId)) {
+            throw new AddressBookApplicationException(404, "The given address book id does not exist!");
+
+        }
         Optional<ContactInfo> contactToBeAdded = addressBooks.get(addressBookId).stream()
                 .filter(c -> c.getPhoneNumber().equals(contact.getPhoneNumber())).findFirst();
 
         if (contactToBeAdded.isPresent()) {
-            throw new AddressBookApplicationException(404,"The given contact phoneNumber already exists!");
+            throw new AddressBookApplicationException(404, "The given contact phoneNumber already exists!");
         } else {
             addressBooks.get(addressBookId).add(contact);
         }
